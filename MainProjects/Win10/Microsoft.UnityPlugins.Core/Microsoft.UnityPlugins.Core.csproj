@@ -142,6 +142,7 @@
       <Link>ToastTemplateType.cs</Link>
     </Compile>
     <Compile Include="Sharing.cs" />
+    <Compile Include="Speech2.cs" />
     <Compile Include="Speech.cs" />
     <Compile Include="SpeechArguments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

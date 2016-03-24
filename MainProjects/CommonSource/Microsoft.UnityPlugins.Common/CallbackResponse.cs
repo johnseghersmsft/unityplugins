@@ -8,7 +8,7 @@ namespace Microsoft.UnityPlugins
 {
     public enum CallbackReponseType
     {
-        ResponsNotDesired = 0,
+        ResponseNotDesired = 0,
         ResponseDesired = 1
     }
 

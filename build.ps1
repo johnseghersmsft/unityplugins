@@ -79,7 +79,7 @@ function exitIfFailed($message)
 # BUILD FAILURES
 $msbuild_vs = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 $unity_exe = "C:\Program Files\Unity\Editor\unity.exe"
-$nuget_exe = "c:\tools\nuget.exe"
+$nuget_exe = "c:\utils\nuget.exe"
 
 
 WriteMessage "Build Editor Projects" "magenta"

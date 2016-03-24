@@ -14,11 +14,20 @@ namespace Microsoft.UnityPlugins
         Hypothesis = 3
     }
 
+    public enum SpeechResultConfidence
+    {
+        High = 0,
+        Medium = 1,
+        Low = 2,
+        Rejected = 3
+    }
     public class SpeechArguments
     {
         public SpeechResultStatus Status { get; set; }
 
         public string Text { get; set; }
+
+        public SpeechResultConfidence Confidence { get; set; }
 
     }
 

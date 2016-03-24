@@ -44,6 +44,7 @@
     <Compile Include="RoamingSettings.cs" />
     <Compile Include="Sharing.cs" />
     <Compile Include="Speech.cs" />
+    <Compile Include="Speech2.cs" />
     <Compile Include="SpeechArguments.cs" />
     <Compile Include="Notifications.cs" />
     <Compile Include="PeriodicUpdateRecurrence.cs" />

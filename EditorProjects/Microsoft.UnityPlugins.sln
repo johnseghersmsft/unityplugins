@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.UnityPlugins.Store.Editor", "Microsoft.UnityPlugins.Store\Microsoft.UnityPlugins.Store.Editor.csproj", "{8DABA6DF-4E0C-4068-B13D-F9CD37FD45C1}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.UnityPlugins.Common.Editor", "Microsoft.UnityPlugins.Common\Microsoft.UnityPlugins.Common.Editor.csproj", "{C581F1A7-227A-4EEA-A378-9AF36E2F609E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.UnityPlugins.Social.Editor", "Microsoft.UnityPlugins.Social.Editor\Microsoft.UnityPlugins.Social.Editor.csproj", "{CA4B842A-B586-457F-8B8A-E99EF346B370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.UnityPlugins.Phone.Editor", "Microsoft.UnityPlugins.Phone\Microsoft.UnityPlugins.Phone.Editor.csproj", "{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,22 @@ Global
 		{CA4B842A-B586-457F-8B8A-E99EF346B370}.Release|x64.Build.0 = Release|Any CPU
 		{CA4B842A-B586-457F-8B8A-E99EF346B370}.Release|x86.ActiveCfg = Release|Any CPU
 		{CA4B842A-B586-457F-8B8A-E99EF346B370}.Release|x86.Build.0 = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|x64.Build.0 = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Debug|x86.Build.0 = Debug|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|ARM.Build.0 = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|x64.ActiveCfg = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|x64.Build.0 = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|x86.ActiveCfg = Release|Any CPU
+		{A6EABFCA-DBA8-4F06-B905-E47AD4B28702}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

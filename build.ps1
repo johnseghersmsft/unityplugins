@@ -17,6 +17,7 @@ Param(
 	[Switch]$core,
 	[Switch]$azure,
 	[Switch]$ads,
+	[Switch]$phone,
 	[Switch]$all,
 	[Switch]$help
 )
@@ -28,12 +29,13 @@ function WriteMessage($message, $color)
 
 $helpMessage = 
 @"
-Usage: build.ps1 [-store] [-core] [-ads] [-azure] [-all]
+Usage: build.ps1 [-store] [-core] [-ads] [-azure] [-phone] [-all]
 Options:
 	-store: builds and exports store package
 	-core: builds and exports core package
 	-ads: builds and exports Advertising package
 	-azure: builds and exports azure package
+    -phone: builds and exports phone package
 	-all: builds and exports all the packages
 	-help: prints this message
 "@
@@ -44,7 +46,7 @@ if($help)
 	Exit
 }
 
-if($store -eq $false -and $ads -eq $false -and $core -eq $false -and $azure -eq $false -and $all -eq $false)
+if($store -eq $false -and $ads -eq $false -and $core -eq $false -and $azure -eq $false -and $phone -eq $false -and $all -eq $false)
 {
 	WriteMessage $helpMessage 'green'
 	Exit
@@ -328,6 +330,53 @@ if($azure -or $all)
 	exitIfFailed "Exporting Azure Mobile Services package"
 
 	WriteMessage "Exporting AzureMobileServices UnityPackage done. Package should be in UnityPackages folder." "green"
+}
+
+if($phone -or $all)
+{
+	WriteMessage "Phone specified on the command line, building Phone now" "magenta"
+	& $nuget_exe restore MainProjects\Win10\Microsoft.UnityPlugins.Phone.sln
+	exitIfFailed 'Nuget restore Phone'
+
+	# AnyCPU - RELEASE
+	# AnyCPU does not work for Advertising because the SDK itself is architecture specific
+	& $msbuild_vs  MainProjects\Win10\Microsoft.UnityPlugins.Phone.sln /p:Configuration=Release
+	exitIfFailed 'Phone - AnyCPU, RELEASE'
+
+	# AnyCPU - DEBUG
+	# AnyCPU does not work for Advertising
+	& $msbuild_vs  MainProjects\Win10\Microsoft.UnityPlugins.Phone.sln /p:Configuration=Debug
+	exitIfFailed 'Phone - AnyCPU, DEBUG'
+
+	WriteMessage "==========================================" "magenta"
+	WriteMessage "begin copying DLLs to Unity Sample" "magenta"
+	WriteMessage "==========================================" "magenta"
+
+	# Phone
+	xcopy /Y Binaries\Editor\Microsoft.UnityPlugins.Phone\Release\AnyCPU\*.pdb Samples\PhoneTest\Assets\Plugins
+	exitIfFailed "xcopying file(s)"
+	xcopy /Y Binaries\Editor\Microsoft.UnityPlugins.Phone\Release\AnyCPU\*.dll Samples\PhoneTest\Assets\Plugins
+	exitIfFailed "xcopying file(s)"
+	xcopy /Y Binaries\Microsoft.UnityPlugins.Phone\Release\AnyCPU\*.pdb Samples\PhoneTest\Assets\Plugins\WSA
+	exitIfFailed "xcopying file(s)"
+	xcopy /Y Binaries\Microsoft.UnityPlugins.Phone\Release\AnyCPU\*.dll Samples\PhoneTest\Assets\Plugins\WSA
+	exitIfFailed "xcopying file(s)"
+
+	WriteMessage "==========================================" "green"
+	WriteMessage "Successfully Copied all binaries to Unity Samples" "green"
+	WriteMessage "==========================================" "green"
+
+	WriteMessage "==========================================" "magenta"
+	WriteMessage "Begin exporting unity packages" "magenta"
+	WriteMessage "==========================================" "magenta"
+
+	$currentPath = convert-path .
+
+	WriteMessage "Exporting Phone package" "magenta"
+	& $unity_exe  -batchmode -projectPath $currentPath\Samples\PhoneTest -exportPackage Assets  $currentPath\UnityPackages\Microsoft.UnityPlugins.Phone.unityPackage -quit  | Out-Null
+	exitIfFailed "Exporting Phone package" 
+
+	WriteMessage "Exporting Phone UnityPackage done. Package should be in UnityPackages folder." "green"
 }
 
 WriteMessage "************************************************************" "green"
